@@ -1,0 +1,42 @@
+{
+    "questions":[
+                    
+        {
+                        "path" :"./codes/code1",
+                        "module" : "Getting Started",
+                        "lecture" :"Patterns",
+                        "qusetion" : "Pattern 8",
+                        "url" :"https://www.pepcoding.com/resources/online-java-foundation/patterns/design-pattern-8-official/ojquestion#"
+
+        },
+
+                    
+
+                    {    "path" :"./codes/code2",
+                        "module" : "Recursion and Backtracking",
+                        "lecture" :"Recursion with Arraylists",
+                        "qusetion" : "Print Kpc",
+                        "url" :"https://www.pepcoding.com/resources/online-java-foundation/recursion-with-arraylists/print-kpc-official/ojquestion"
+
+                    },
+                    {
+                        "path" :"./codes/code3",
+                        "module" : "Dynamic Programing",
+                        "lecture" :"Dynamic Programing and Greedy",
+                        "qusetion" : "Count Binary Strings",
+                        "url" :"https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/count-binary-strings-official/ojquestion"
+
+                    },
+                    {
+                        "path" :"./codes/code4",
+                        "module" : "Getting Started",
+                        "lecture" :"Array 2-D Arrays",
+                        "qusetion" : "Diagonal Traversal",
+                        "url" :"https://www.pepcoding.com/resources/online-java-foundation/arrays-2-d-arrays/diagonal-traversal-official/ojquestion"
+
+                    }
+
+
+
+                ]
+}

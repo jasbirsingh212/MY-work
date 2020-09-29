@@ -1,0 +1,104 @@
+<html>
+    <head>
+        <title><%= pagename %></title>
+        <link rel= "stylesheet" type="text/css" href="./EXCEL_CLONE.css"/>
+    </head>
+    <body>
+        <div id="container">
+            <div id="Menu-Bar">
+                <div id="File-Menu" data-content="File-Menu-container">File</div>
+                <div id="Home-Menu" data-content="Home-Menu-container">Home</div>
+                <div id="Data-Menu"data-content="Data-Menu-container">Data</div>
+               
+            </div>
+            <div id="Menu-Content-container">
+                <div class="Menu-container" id="File-Menu-container">
+                <div id="New">New</div>
+                <div id="Open">Open</div>
+                <div id="Save">Save</div>
+                </div>
+                <div  class="Menu-container" id="Home-Menu-container"> 
+                    <div class="Menu-Group" id="Font-Menu-container">
+                        <div class="Menu-Row">
+                            <select id="Font-Family">
+                                <option value="Georgia">Georgia</option>
+                                <option value="Arial">Arial</option>
+                                <option value="Impact">Impact</option>
+                                <option value="Tahoma">Tahoma</option>
+                                <option value="Time New Roman">Time New Roman</option>
+                            </select>
+                             <select id="Font-Size">
+                                <option value="8">8</option>
+                                <option value="10">10</option>
+                                <option value="12">12</option>
+                                <option value="14">14</option>
+                                <option value="16">16</option>
+                            </select>
+                        </div>
+                        <div class="Menu-Row">
+                            <input id="bold" type="button" value="B">
+                            <input id="italic" type="button" value="I">
+                            <input id="underline" type="button" value="U">
+                            <input id="bg-color" type="color" value="#FFFFFF">
+                            <input id="text-color" type="color" value="#000000">
+                        </div>
+
+                    </div>
+                    <div class="Menu-Group" id="alignment-Menu-container">
+                        <div class="Menu-Row">
+                            <input id="top-align" type="button" prop-val="top" class="valign" value="T">
+                            <input id="middle-align" type="button" prop-val="middle" class="valign" value="M">
+                            <input id="bottom-align" type="button" prop-val="bottom" class="valign" value="B">
+                        </div>
+                        <div class="Menu-Row">
+                            <input id="top-align" type="button" prop-val="left" class="halign" value="L">
+                            <input id="center-align" type="button" prop-val="center" class="halign" value="C">
+                            <input id="right-align" type="button" prop-val="right" class="halign" value="R">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="Menu-container" id="Data-Menu-container">
+                    
+                </div>
+            </div>
+            
+            <div id="Formula-Bar">
+                <input type="text" id="CellFormula" readonly="true">
+                <div id="Seprator">:</div>
+                <input type="text" id="TxtFormula">
+            </div>
+            <div id="Content-container">
+                <div id="tl-cell"></div>
+                <div id="first-row">
+                    <% for(let j=0;j<cols;j++){%>
+                        <div class="cell"><%= String.fromCharCode('A'.charCodeAt(0)+j)%></div>
+                        <%}%>
+                </div>
+                <div id="first-col">
+                    <% for(let i=0;i<rows;i++){%>
+                        <div class="cell"><%=i+1 %></div>
+                        <%}%>
+                </div>
+                <div id="grid">
+                    <% for(let i=0;i<rows;i++){%>
+                        <div class=" row">
+                            <% for(let j=0;j<cols;j++){%>
+                                <div class="cell" contenteditable="true" rid="<%=i%>" cid="<%=j%>"></div>
+                                <%}%>
+                        </div>
+                        
+                        <%}%>
+                </div>
+            </div>
+
+            <div id="Sheets-Bar">
+                <div id="sheet-crl"></div>
+                <div id="Sheet_1">Sheet1</div>
+                <div id="add">⊕</div>
+            </div>
+        </div>
+        <script src="./mainl.js"></script>
+    </body>
+        
+</html>

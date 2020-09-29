@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="./OPEN_BOARD.css">
+    </head>
+    <body>
+
+        <div class="tool-bar">
+            <div class="tools">
+                <div class="tool">
+                    <img src="./resources-master/resources-master/NewIcons/Black_Pencil.svg" alt="" id="pencil" class="tool-img">
+                    <div class="tool-options" id="p-options">
+                        <div class="size-container">
+                            <input type="range" min=5 max=30 class="slider" value="5">
+                        </div>
+                        <div class="color-pallet">
+                            <div class="red color" onclick="handlecolorchange('red')"></div>
+                            <div class="blue color" onclick="handlecolorchange('blue')" ></div>
+                            <div class="green color" onclick="handlecolorchange('green')" ></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tool">
+                    <img src="./resources-master/resources-master/NewIcons/Eraser.svg" alt="" id="eraser"  class="tool-img">
+                    <div class="tool-options" id="e-options">
+                    <div class="size-container">
+                        <input type="range" min=5 max=30 class="slider" value="5">
+                    </div>
+                </div>
+            </div>
+            <div class="tool">
+                <img src="./resources-master/resources-master/NewIcons/StickyNote.svg" alt="" id="sticky"  class="tool-img">
+        </div>
+        <div class="tool">
+            <img src="./resources-master/resources-master/NewIcons/Photo.svg" alt="" id="upload"  class="tool-img">
+            <input type="file" id="file-upload">
+        </div>
+
+        <div class="tool">
+            <img src="./resources-master/resources-master/NewIcons/Download.svg" alt="" id="download"  class="tool-img">
+            <input type="file" id="file-upload">
+        </div>
+
+        <div class="tool">
+            <img src="./resources-master/resources-master/NewIcons/Undo.svg" alt="" id="undo"  class="tool-img">
+        </div>
+
+        <div class="tool">
+            <img src="./resources-master/resources-master/NewIcons/Redo.svg" alt="" id="redo"  class="tool-img">
+        </div>
+        </div>
+
+    </div>
+        <canvas class="board"></canvas>
+        <script>
+            let board=document.querySelector(".board");
+            board.height=window.innerHeight;
+            board.width=window.innerWidth;
+
+            const ctx=board.getContext("2d");
+            ctx.lineWidth=10;
+            // ctx.strokeRect(75,140,150,110);
+             ctx.fillStyle="brown";
+            // ctx.fillRect(75,140,150,110);
+            window.onresize=function()
+            {
+                board.height=window.innerHeight;
+                board.width=window.innerWidth;
+            }
+        </script>
+        <script src="utility.js"></script>
+        <script src="tool.js"></script>
+        <script src="draw.js"></script>
+        <script src="sticky.js"></script>
+        <script src="img.js"></script>
+    </body>
+</html>

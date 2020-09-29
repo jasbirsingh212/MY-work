@@ -1,0 +1,178 @@
+html,body{
+
+    margin : 0px;
+    padding : 0px ;
+    
+}
+
+#Container{
+
+    display: flex;
+    flex-direction: column;
+    background-color: lightgray;
+}
+
+#Menu-Bar{
+
+    display:flex;
+    flex-direction: row;
+    background-color: rgb(9, 107, 60);
+    height: 150px; 
+}
+
+#Menu-Bar > div{
+    color: white;
+    padding:10px;
+    font-size:80px solid white;
+    cursor :pointer;
+    height: 10px;
+    /* width: 15px; */
+}
+
+#Menu-Bar >div:hover{
+    border-bottom:2px solid white;
+    font-weight:bold;
+}
+
+#Formula-Bar{
+    display: flex;
+    flex-direction: row;
+    background-color: lightgray;
+    height:30px;
+}
+
+#Formula-Bar > #Cell{
+    flex:0;
+}
+
+#Formula-Bar > #Seprator{
+    flex: 10px;
+    text-align:center;
+}
+
+#Formula-Bar> #Formula{
+    flex:99;
+}
+
+#Content-container{
+    height:calc(100vh - 230px);
+    position: relative;
+    background-color:white;
+    /* height : 580px; */
+    overflow: auto;
+}
+
+#tl-cell
+{
+ position: absolute;
+ top:0px;
+ left:0px;
+ height: 25px;
+ width: 25px;
+ background-color: lightgray;
+ border-right: 1px solid lightslategray;
+ border-bottom: 1px solid lightslategray;
+ z-index: 3;   
+}
+
+#first-row{
+    position: absolute;
+    left:25px;
+    height:25px;
+    background-color: lavender;
+    display: flex;
+    flex-direction: row;
+    z-index: 2;
+}
+#first-col{
+    position:absolute;
+    top:25px;
+    width:25px;
+    background-color: lavender;
+
+    display:flex;
+    flex-direction: column;
+    z-index: 1;
+}
+
+#grid{
+    position: absolute;
+    top:25px;
+    left:25px;
+    
+    display: flex;
+    flex-direction: column;
+
+}
+
+.row{
+    
+    display: flex;
+    flex-direction: row;
+}
+
+.cell{
+    width: 72px;
+    border: 0.5px solid lightgrey;
+    text-align: right;
+    box-sizing: border-box;
+    line-height: 30px;
+    font-size: 15px;
+    padding-right: 1px;
+}
+
+#first-col .cell{
+    width: 25px;
+    font-size: 16px;
+    text-align: center;
+}
+
+#first-row .cell {
+    font-size: 16px;
+    text-align: center;
+}
+#Sheets-Bar{
+    /* margin:10px 0px 0px 0px; */
+    /* text-align: center; */
+    display: flex;
+    color : black;
+    background-color:lightgray;
+    flex-direction:row;
+    height:30px;
+}
+
+#sheet-crl{
+
+    display: flex;
+    flex-direction: row;
+    width: 80px;
+    border: 1px solid black;
+
+}
+
+#Sheets-Bar #Sheet_1{
+
+    /* border: 2px solid black; */
+    /* border-right: 2px solid black; */
+    padding: 4px;
+    font-size:15px;
+    cursor: pointer;
+    text-align: center;
+}
+
+#Sheets-Bar > div:hover{
+    border-bottom: 2px solid rgb(9, 107, 60) ;
+    font-weight:bold;
+    cursor: pointer;
+    text-align: center;
+
+}
+
+#Sheets-Bar #add{
+    /* border:2px solid black; */
+    /* margin: 15px,1px,5px,1px; */
+    padding: 4px;
+    width:20px;
+    text-align: center;
+    cursor: pointer;
+}

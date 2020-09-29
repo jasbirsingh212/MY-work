@@ -1,0 +1,6 @@
+
+
+
+
+
+console.log(fs.stats);

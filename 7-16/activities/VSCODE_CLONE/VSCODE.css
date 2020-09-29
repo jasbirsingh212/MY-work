@@ -1,0 +1,80 @@
+html,body{
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+#container{
+    border: 0.05px solid lightgray;
+    text-align:center;
+}
+
+#top-bar{
+    border: 0.05px solid lightgray;
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    /* background-color: rgb(51, 49, 49); */
+    background-color: rgb(80, 78, 78);
+    color: white;
+    padding: 10px;
+    
+}
+
+#main-window{
+    display: flex;
+    flex-direction: row;
+}
+
+#activity-bar{
+    width: 70px;
+    background-color: rgb(80, 78, 78);
+    color: white;
+}
+#explorer{
+    display:flex;
+    flex-direction: column;
+    width: 225px;
+    border : 0.05px solid lightgray;
+    background-color: rgb(51, 49, 49);
+    color: white;
+}
+
+#editor-terminal-window{
+    display: flex;
+    flex-direction: column;
+    width : calc(100vw - 290px)
+}
+
+#terminal{
+    display: flex;
+    flex-direction: column;
+    border: 0.05px solid lightgray;
+    height: 160px;
+    background-color: rgb(51, 49, 49);
+    color: white;
+}
+
+#openfile{
+    background-color: rgb(51, 49, 49);
+    color: white;
+    height: 40px;
+    padding: 7px;
+}
+#editor{
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 270px);
+    border : 0.05px solid lightgray;
+    background-color: rgb(51, 49, 49);
+    color: white;
+}
+
+#bottom{
+    background-color: rgb(10, 176, 241);
+    color: white;
+}

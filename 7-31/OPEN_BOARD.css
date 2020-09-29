@@ -1,0 +1,150 @@
+html,body{
+    margin: 0px;
+    padding: 0px;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+.tool-bar{
+    height: 60px;
+    background-color: seagreen;
+}
+
+.tools{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
+.tool{
+    height: 80%;
+    position : relative;
+}
+
+
+.tool-img{
+    height: 100%;
+    width: 45px;
+}
+
+.tool-options{
+    height: 5rem;
+    background-color: rgb(225, 228, 230);
+    position:absolute;
+    left: -46px;
+    width: 119px;
+    top  : 60px;
+    display: none;
+}
+
+.size-container{
+    height : 50%;
+    border: 1px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type="range"]
+{
+    width :80%;
+}
+
+.color-pallet{
+    height: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.red{
+    height: 70%;
+    background-color: red;
+    width: 24%;
+    border-radius: 50%;
+}
+
+.blue{
+    height: 70%;
+    background-color: blue;
+    width: 24%;
+    border-radius: 50%;
+}
+
+.green{
+    height: 70%;
+    background-color: green;
+    width: 24%;
+    border-radius: 50%;
+}
+
+/* .tool-options{
+    display: none;
+} */
+
+.show{
+    display: block;
+}
+
+.sticky-pad{
+
+    position: absolute;
+    top: 40vh;
+    left: 42vw;
+    height: 12rem;
+    width: 11rem;
+    
+    border-radius: 6px;
+}
+
+.navbar{
+    height: 20%;
+    background-color: #f39c12;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right:8px ;
+}
+
+.close
+{
+    height: 65%;
+    background: red;
+    width :16% ;
+    border-radius: 50%;
+    margin-right: 3px;
+}
+
+.minimize{
+    height: 65%;
+    background: #2ecc71;
+    width: 16%;
+    border-radius: 50%;
+    margin-right: 3px;
+}
+
+.textbox{
+    height: 80%;
+    width: 100%;
+    background-color: #FFC312;
+}
+
+.textbox textarea{
+    height : 100%;
+    width : 100%;
+    background: inherit;
+}
+
+input[type="file"]{
+
+    display: none;
+}
+
+.uploaded-img{
+    height: 100%;
+    width: 100%;
+}
+
+

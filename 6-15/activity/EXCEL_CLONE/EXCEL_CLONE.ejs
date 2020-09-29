@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title><%= pagename %></title>
+        <link rel= "stylesheet" type="text/css" href="./EXCEL_CLONE.css"/>
+    </head>
+    <body>
+        <div id="container">
+            <div id="Menu-Bar">
+                <div id="File">File</div>
+                <div id="Home">Home</div>
+                <div id="Data">Data</div>
+                <div id="View">View</div>
+                <div id="Help">Help</div>
+                <div id="New">New</div>
+                <div id="Open">Open</div>
+                <div id="Save">Save</div>
+            </div>
+            
+            <div id="Formula-Bar">
+                <input type="text" id="Cell">
+                <div id="Seprator">:</div>
+                <input type="text" id="Formula">
+            </div>
+            <div id="Content-container">
+                <div id="tl-cell"></div>
+                <div id="first-row">
+                    <% for(let j=0;j<cols;j++){%>
+                        <div class="cell"><%= String.fromCharCode('A'.charCodeAt(0)+j)%></div>
+                        <%}%>
+                </div>
+                <div id="first-col">
+                    <% for(let i=0;i<rows;i++){%>
+                        <div class="cell"><%=i+1 %></div>
+                        <%}%>
+                </div>
+                <div id="grid">
+                    <% for(let i=0;i<rows;i++){%>
+                        <div class=" row">
+                            <% for(let j=0;j<cols;j++){%>
+                                <div class="cell" contenteditable="true"></div>
+                                <%}%>
+                        </div>
+                        
+                        <%}%>
+                </div>
+            </div>
+
+            <div id="Sheets-Bar">
+                <div id="sheet-crl"></div>
+                <div id="Sheet_1">Sheet1</div>
+                <div id="add">⊕</div>
+            </div>
+        </div>
+        <script src="./mainl.js"></script>
+    </body>
+        
+</html>
