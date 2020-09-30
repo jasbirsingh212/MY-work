@@ -23,7 +23,7 @@ class ProFileDetails extends Component {
         //         ,handle:"abc@gmail.com"
         //     })
         // }, 2000);
-        axios.get("/api/v1/users/4276075c-1d8d-4d9b-b983-2de83eaa4c4d").then(
+        axios.get("/api/v1/users/04d7bcb4-b66e-4946-bc27-681863b08ec4").then(
             (res) => {
                 let { email_id, handle, p_img_url } = res.data.user;
                 this.setState({
@@ -32,7 +32,7 @@ class ProFileDetails extends Component {
                     handle: handle
                 })
             }).then(() => {//4276075c-1d8d-4d9b-b983-2de83eaa4c4d
-                let followerP = axios.get("/api/v1/users/fr/4276075c-1d8d-4d9b-b983-2de83eaa4c4d")
+                let followerP = axios.get("/api/v1/users/fr/04d7bcb4-b66e-4946-bc27-681863b08ec4")
                 return followerP;
             }).then((follwoerRes) => {
 
@@ -57,7 +57,7 @@ class ProFileDetails extends Component {
             <div className="profile-details">
                 <div className="profile-subpart">
                     <h1>PROFILE</h1>
-                    <img src={src} alt="profile-img" />
+                    <img className="pi" src={src} width={200} height={350} />
                     <div className="email">{email}</div>
                     <div className="handle">{handle}</div>
                 </div>
