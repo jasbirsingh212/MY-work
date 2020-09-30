@@ -1,12 +1,14 @@
 import ReactDOM from 'react-dom';
 import ProFileDetails from "./components/user/ProfileDetails";
-
+import LoginPage from "./components/user/LoginPage";
+import Setting from "./components/user/SettingPage";
+import PageNotFound from "./components/user/PageNotFound";
 import './index.css';
 //import App from './App';
 import React, { Component } from 'react';
 import * as serviceWorker from './serviceWorker';
 import axios from 'axios';
-import {BrowserRouter} from "react-router-dom";
+import {BrowserRouter,Route,Switch,Redirect} from "react-router-dom";
 // functional component
 function ProfileMenu(props) {
   let { changeMenu } = props;
@@ -88,11 +90,27 @@ class UserView extends Component {
 function App() {
   return (
     <React.Fragment>
-      <div className="app">
+    <Switch>
+    <Route path="/profile" exact>
+      <div className = "app">
         <UserView></UserView>
-        <div className="postView"> PostView</div>
+        <div className="postView">PostView</div>
       </div>
-    </React.Fragment>
+    </Route>
+      <Route path="/" exact>
+        <LoginPage></LoginPage>
+      </Route>
+      <Redirect path="/login" exact>
+      </Redirect>
+      <Route path="/setting" exact>
+        <Setting></Setting>
+      </Route>
+      <Route>
+        <PageNotFound></PageNotFound>
+      </Route>
+      </Switch>
+      </React.Fragment>
+    
   );
 }
 ReactDOM.render(<BrowserRouter> <App /> </BrowserRouter>, document.getElementById('root')
