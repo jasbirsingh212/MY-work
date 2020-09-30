@@ -10,7 +10,8 @@ const app = express();//server  or application;
 const fs = require("fs");
 const path = require("path");
 const userRouter = require("./router/userRouter");
-app.use(express.static("view"));//send static resources to client to get (client UI); 
+app.use(express.static("view"));//send static resources to client to get (client UI);
+app.use(express.static(path.join(__dirname,"public")));
 const postRouter = require("./router/postRouter");
 const commentRouter=require("./router/commentRouter");
 // REST API

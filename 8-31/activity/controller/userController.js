@@ -1,4 +1,4 @@
-let userDB = require("../model/user.json");//??
+//let userDB = require("../model/user.json");//??
 let userModel= require ("../model/userModel.js");
 let userFollowerModel= require("../model/userFollowerModel");
 
@@ -54,7 +54,7 @@ async function updateUser(req, res) {
     if(req.file)
     {
         img=req.file.filename;
-        updateObj.p_img_url=img;
+        updateObj.p_img_url= "/user/" + img;
     }
     // sql => update 
     // getById=> user
