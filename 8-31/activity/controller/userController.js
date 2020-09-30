@@ -50,6 +50,12 @@ async function getUser(req, res) {
 async function updateUser(req, res) {
     let { user_id } = req.params;
     let updateObj = req.body;
+    let img;
+    if(req.file)
+    {
+        img=req.file.filename;
+        updateObj.p_img_url=img;
+    }
     // sql => update 
     // getById=> user
     // send to res
