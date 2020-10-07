@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS user(
     email_id VARCHAR(50) UNIQUE,
     phone BIGINT(10) UNIQUE,
     bio VARCHAR(150),
-    is_verified BOOLEAN DEFAULT false,
+    is_verified BOOLEAN DEFAULT false,--no boolean in sql use tinyint;
     is_public BOOLEAN DEFAULT true,
     p_img_url VARCHAR(255) 
 );
