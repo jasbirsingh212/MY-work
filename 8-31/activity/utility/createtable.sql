@@ -36,4 +36,15 @@ CREATE TABLE IF NOT EXISTS comment(
     p_id VARCHAR(80) NOT NULL,
     created_at DATETIME NOT NULL,
     INDEX(p_id) 
-)
+);
+
+-- CREATE TABLE IF NOT EXISTS user_following(
+--     uid VARCHAR(80) NOT NULL
+--     following_id VARCHAR(80) NOT NULL
+-- )
+
+--  CREATE TABLE IF NOT EXISTS user_following(
+--     uid VARCHAR(80) NOT NULL
+--     p_id VARCHAR(80) NOT NULL
+-- )
+
