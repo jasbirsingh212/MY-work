@@ -168,6 +168,8 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="/__/firebase/7.24.0/firebase-app.js"></script>
+<script src="/__/firebase/7.24.0/firebase-auth.js"></script>
+<script src="/__/firebase/7.24.0/firebase-firestore.js"></script>
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
@@ -176,9 +178,39 @@
 <!-- Initialize Firebase -->
 <script src="/__/firebase/init.js"></script>
 <script type="text/javascript">
+
+var firebaseConfig = {
+    apiKey: "AIzaSyD3qJXyjJO6UxTsTUQiOYzxwgj18hIPO3E",
+    authDomain: "resume-builder-2457a.firebaseapp.com",
+    databaseURL: "https://resume-builder-2457a.firebaseio.com",
+    projectId: "resume-builder-2457a",
+    storageBucket: "resume-builder-2457a.appspot.com",
+    messagingSenderId: "16300807404",
+    appId: "1:16300807404:web:999e40db9dc502586701c9",
+    measurementId: "G-PXCSCGYDS9"
+  };
+
   $(document).ready(function () {
    alert(1);
-   
+
+   $('#signupForm').submit(function(event){
+       event.preventDefault();
+       var userName=$(this).find('input[name=userName]').val();
+       var password = $(this).find('input[name=password]').val();
+       if(!userName || !password)
+       {
+           return
+       }
+
+       authDomain.createUserWithEmailAndPassword(userName,password).then(res =>{
+           alert(res);
+       }).catch(function(error){
+           var message = error.message;
+           var code=error.code;
+           alert(message + " "+ code);
+       })
+   })
+
   });
 </script>
 
