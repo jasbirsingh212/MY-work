@@ -14,9 +14,12 @@ const GettingStarted= ()=>{
                     {
                         skinCodes.map((value) => {
                             return( <div className="template-card rounded-border">
-                                  <i className="hide" ></i>
-                                <img  className='' src={'/images/' + value + '.svg'}/>
+                                  {/* <i className="hide" ></i> */}
+                                <img  className='' src={"./../images/" + value + ".svg"}/>
+                                <NavLink to="/contact">
                                 <button type="button"   className='btn-select-theme'>USE TEMPLATE</button>
+                                </NavLink>
+                                {/* <button type="button"   className='btn-select-theme'>USE TEMPLATE</button> */}
                             </div>);
     
                         })

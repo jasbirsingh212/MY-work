@@ -1,18 +1,24 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-
+import {fieldCd} from './../../constants/typeCode'
 import ResumePreview from './resumePreview'
-
-export default class Contact extends React.Component{
+class Contact extends React.Component{
   constructor(props, context){
-    super(props, context);
-    this.state ={'name':'test', 'college':'ABC'};
-    this.onChange = this.onChange.bind(this);
+    super(props);
+    this.state ={
+      contactSection:{},
+      educationSection:{}
+    }
+    ;
   }
 
-  onChange(event){
+  onChange=(event)=>{
+   const val =event.target.value;
+   const key= event.target.name;
 
-    this.setState({name: event.target.value})
+  this.setState({contactSection:{...this.state.contactSection,[key]:val}})
+
+    console.log(val);
   }
 
 render()  {
@@ -23,75 +29,77 @@ render()  {
                 <h2 className="form-heading center">Personal Details</h2>
                 <div className="form-section">
                   <div className="input-group"><label>First Name</label>
-                    <div className="effect"><input  type="text" name="FNAM" onChange={this.onChange}  /><span></span>
+                    <div className="effect"><input  type="text" name={fieldCd.FirstName} onChange={this.onChange}/><span></span>
                     </div>
                     <div className="error"></div>
                   </div>
         
                   <div className="input-group"><label>Last Name</label>
-                    <div className="effect"><input type="text" name="LNAM"  /><span></span>
+                    <div className="effect"><input type="text" name={fieldCd.LastName} onChange={this.onChange}  /><span></span>
                     </div>
                     <div className="error"></div>
                   </div>
 
                   <div className="input-group full"><label>Professional Summary</label>
-                    <div className="effect"><input type="text" name="PRSU"  /><span></span>
+                    <div className="effect"><input type="text" name={fieldCd.ProfSummary} onChange={this.onChange}  /><span></span>
                     </div>
                     <div className="error"></div>
                   </div>
                 
                   <div className="input-group"><label>Email</label>
-                    <div className="effect"><input  type="text" name="EMAI"    /><span></span>
+                    <div className="effect"><input  type="text"  name={fieldCd.Email} onChange={this.onChange}   /><span></span>
                     </div>
                     <div className="error"></div>
                   </div>
 
                   <div className="input-group"><label>Phone</label>
-                    <div className="effect"><input  type="text" name="PHON"   /><span></span>
+                    <div className="effect"><input  type="text"  name={fieldCd.Phone} onChange={this.onChange}   /><span></span>
                     </div>
                     <div className="error"></div>
                   </div>
         
                   <div className="input-group"><label>Profession</label>
-                    <div className="effect"><input type="text" name="PROF"   /><span></span>
+                    <div className="effect"><input type="text"  name={fieldCd.Profession} onChange={this.onChange}  /><span></span>
                     </div>
                     <div className="error"></div>
                   </div>
                   <div className="input-group"><label>Street</label>
-                    <div className="effect"><input  type="text" name="STRT"  /><span></span>
+                    <div className="effect"><input  type="text"  name={fieldCd.Street} onChange={this.onChange} /><span></span>
                     </div>
                     <div className="error"></div>
                   </div>
 
                   <div className="input-group"><label>City</label>
-                    <div className="effect"><input  type="text" name="CITY"   /><span></span>
+                    <div className="effect"><input  type="text" name={fieldCd.City} onChange={this.onChange}   /><span></span>
                     </div>
                     <div className="error"></div>
                   </div>
         
                   <div className="input-group"><label>State</label>
-                    <div className="effect"><input type="text" name="STAT"   /><span></span>
+                    <div className="effect"><input type="text" name={fieldCd.State} onChange={this.onChange}  /><span></span>
                     </div>
                     <div className="error"></div>
                   </div>
 
                 
                   <div className="input-group"><label>Country</label>
-                    <div className="effect"><input type="text" name="CNTY"  /><span></span>
+                    <div className="effect"><input type="text" name={fieldCd.Country} onChange={this.onChange} /><span></span>
                     </div>
                     <div className="error"></div>
                   </div>
                   <div className="input-group"><label>Pin Code</label>
-                    <div className="effect"><input type="text" name="ZIPC"   /><span></span>
+                    <div className="effect"><input type="text" name={fieldCd.ZipCode} onChange={this.onChange}  /><span></span>
                     </div>
                     <div className="error"></div>
                   </div>
 
 
                   <div className="form-buttons">
-                    <button className="btn hvr-float-shadow"  type='button'>Next</button>
+                  <NavLink to='/education' className="btn hvr-float-shadow">
+                    <span >Next</span>
+                  </NavLink>
             
-                    <NavLink to='/education' className="center">Back</NavLink>
+                    <NavLink to='/getting-started' className="center">Back</NavLink>
                 </div>
 
                 </div>
@@ -99,7 +107,7 @@ render()  {
               </div>
         
               <div className="preview-card">   
-              <ResumePreview name={this.state.name}></ResumePreview>     
+              <ResumePreview contactSection={this.state.contactSection} educationSection={this.state.educationSection} ></ResumePreview>     
               </div>        
              
             </div>
@@ -107,3 +115,4 @@ render()  {
             );
         }
 }
+export default Contact;

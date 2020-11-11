@@ -1,5 +1,4 @@
 import React from 'react';
-
 import './static/scss/app.scss';
 import 'react-router-dom';
 // import Contact from './components/presentation/contact';
@@ -13,6 +12,8 @@ import Register from './components/presentation/login';
 import AboutUs from './components/presentation/aboutUs';
 import Contacts from './components/presentation/contact';
 import Education from './components/presentation/education';
+import finalize from './components/presentation/finalize';
+// import templatesPage from './components/presentation/templatesPage';
 
 
 function App() {
@@ -24,9 +25,11 @@ function App() {
           <Route path="/contact" component={Contacts}></Route>
           <Route path="/getting-started" component={GettingStarted}></Route>
           <Route path="/resume-templates" component={GettingStarted}></Route>
+          {/* <Route path="/resume-templates" component={templatesPage}></Route> */}
           <Route path="/about-us"     component={AboutUs}></Route>
           <Route path="/login" component={Login}></Route>
-          <Route path="/register" component={Register}></Route>             
+          <Route path="/register" component={Register}></Route> 
+          <Route path="/finalize" component={finalize}></Route>            
           <Route path="/" component={LandingPage}></Route>
       </Switch>
       <Footer></Footer>   

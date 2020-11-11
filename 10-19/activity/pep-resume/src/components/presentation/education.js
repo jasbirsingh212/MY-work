@@ -44,8 +44,10 @@ const Education = () => {
                   </div>      
 
                   <div className="form-buttons">
-                    <button className="btn hvr-float-shadow" type='button'>Next</button>
-                    <NavLink to='/finalize' className="center">Back</NavLink>
+                    <NavLink to = "/finalize" className="btn hvr-float-shadow">
+                    <span>Next</span>
+                    </NavLink>
+                    <NavLink to='/contact' className="center">Back</NavLink>
                 </div>
                 </div>            
               </div>

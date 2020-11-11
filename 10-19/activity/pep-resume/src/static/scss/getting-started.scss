@@ -1,36 +1,37 @@
 .gettingStarted {
-
-    .styleTemplate {
-      display: flex;
-      flex-wrap: wrap;
-    }
   
-    .template-card {
+  .styleTemplate {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .template-card {
+    flex: 1 0 20%;
+    /* explanation below */
+    margin: 15px;
+    height: 310px;
+    box-shadow: 0 2px 9px rgba(0, 0, 0, 0.1);
+    
+    &:hover {
+      //  background: rgb(9 51 107 / 89%);
+      // -webkit-transition: 0.5s;
+      // -o-transition: 0.5s;
+      /* transition: 0.5s; */
+      /* width: 100%; */
+      z-index: 84;
+      opacity: 0.8;
+    }
+    
+    img
+    {
       flex: 1 0 20%;
       /* explanation below */
-      margin: 12px;
-      height: 360px;
-      box-shadow: 0 2px 9px rgba(0, 0, 0, 0.1);
-  
-      &:hover {
-        //  background: rgb(9 51 107 / 89%);
-        // -webkit-transition: 0.5s;
-        // -o-transition: 0.5s;
-        /* transition: 0.5s; */
-        /* width: 100%; */
-        z-index: 84;
-        opacity: 0.8;
-      }
-  
-      img {
-        flex: 1 0 20%;
-        /* explanation below */
-        margin: 5px;
-        height: 300px;
-        width: 100%;
-      }
-  
-      .btn-select-theme {
+      margin: 5px;
+      height: 300px;
+      width: 100%;
+    }
+    
+    .btn-select-theme {
         border: none;
         border: none;
         padding: 5%;
