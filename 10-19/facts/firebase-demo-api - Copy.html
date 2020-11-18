@@ -121,7 +121,7 @@
         </nav>
     </div>
 
-    <div class="signup-section hide">
+    <div class="signup-section section hide">
         <h2 style="text-align:center">SignUp Form</h2>
         <form action="/signup" method="post" id="signupForm">
             <div class="container">
@@ -137,17 +137,17 @@
                 <button id="signup" type="submit">Register</button>
                 <div class="no-account" style="background-color:#f1f1f1;">
                     <p> If you already have an account please
-                        <span class="open-signin-form"><a href="#">login </a></span>
+                        <span class="open-signin-form"><a href="#">Login </a></span>
                     </p>
                 </div>
             </div>
         </form>
     </div>
-    <div class="signin-section hide">
+    <div class="signin-section  section hide">
         <h2 style="text-align:center">SignIn Form</h2>
         <form action="/signin" method="post" id="signinForm">
             <div class="container">
-                <label for="email"><b>email</b></label>
+                <label for="email"><b>Email</b></label>
                 <input name="email" type="text" placeholder="Enter email" required>
 
                 <label for="password"><b>Password</b></label>
@@ -156,22 +156,36 @@
                 <button id="signin" type="submit">Sign IN</button>
                 <div class="no-account" style="background-color:#f1f1f1;">
                     <p> If you don't have an account please
-                        <span class="open-signup-form"><a href="#">register </a></span>
+                        <span class="open-signup-form"><a href="#">Register </a></span>
                     </p>
                 </div>
             </div>
         </form>
     </div>
 
-    <div class="add-resume-section hide">
+    
+    
+    <div class="data-section section hide">
+        <h2 style="text-align:center">Data Section</h2>
+        <div class="container large">
+            <ul class="resume-list">
+            </ul>
+        </div>
+    </div>
+    
+    <div class="add-resume-section section hide">
         <h2 style="text-align:center">Add Resume</h2>
         <form action="/signin" method="post" id="addResumeForm">
             <div class="container">
+
+                <label for="id"><b>ID</b></label>
+                <input name="id" type="text" placeholder="Enter Resume ID" required>
+
                 <label for="name"><b>Name</b></label>
                 <input name="name" type="text" placeholder="Enter Resume Name" required>
 
-                <label for="contact"><b>Contact</b></label>
-                <input name="contact" type="text" placeholder="Enter Contact" required>
+                <label for="skincd"><b>SkinCd</b></label>
+                <input name="skincd" type="text" placeholder="Enter skinCd" required>
 
                 <button id="addResume" type="submit">Add</button>
 
@@ -179,14 +193,19 @@
         </form>
     </div>
 
+    <!-- <div class="delete-resume-section section hide">
+        <h2 style="text-align:center">Delete Resume</h2>
+        <form action="/signin" method="post" id="deleteResumeForm">
+            <div class="container">
 
-    <div class="data-section hide">
-        <h2 style="text-align:center">Data Section</h2>
-        <div class="container large">
-            <ul class="resume-list">
-            </ul>
-        </div>
-    </div>
+                <label for="id"><b>ID</b></label>
+                <input name="id" type="text" placeholder="Enter Resume ID" required>
+
+                <button id="addResume" type="submit">Add</button>
+
+            </div>
+        </form>
+    </div> -->
 
 
 </body>
@@ -235,6 +254,47 @@
 //        alert(str);
 
 $(document).ready(function () {
+
+    auth.onAuthStateChanged(function(user){
+        if(user)
+        {
+            var uid=user.uid;
+            $(".loggedInUser").html('Logged in as' + uid);
+            db.collection('resumes').onSnapshot(res => {
+                 console.log(res);
+                let allresumes=res.docs;
+                    console.log(allresumes);
+                    let htmldata="";
+                    allresumes.forEach(element => {
+                        htmldata+="<li>"
+                        htmldata+=element.data().id +" "+ element.data().name+" "+element.data().skinCd
+                        htmldata+="</li>"
+                    });
+                    $('.resume-list').html(htmldata);
+                    $('.section').addClass('hide');
+                    $('.data-section').removeClass('hide');
+                    $('.add-resume-section').removeClass('hide');
+                    $('.delete-resume-section').removeClass('hide');
+                     $('.signup-section').addClass('hide');
+                     $('.signin-section').addClass('hide');
+                     $('#logout').removeClass('hide');
+                     $('.open-signup-form').addClass('hide'); 
+                     $('.open-signin-form').addClass('hide'); 
+
+            })
+        }
+        else{ $(".loggedInUser").html('');
+        $('.data-section').addClass('hide');
+        $('.signup-section').addClass('hide');
+        $('.signin-section').removeClass('hide');
+        $('.add-resume-section').addClass('hide');
+        $('.delete-resume-section').addClass('hide');
+        $('#logout').addClass('hide');
+        $('.open-signup-form').removeClass('hide'); 
+        $('.open-signin-form').removeClass('hide');
+        }
+    })
+       
        $("#signupForm").submit(function (event) {
             event.preventDefault();
             var email = $(this).find('input[name=email]').val();
@@ -263,7 +323,7 @@ $(document).ready(function () {
             var password = $(this).find('input[name=password]').val();
             //  alert(email + " " + password + " "+name); 
             auth.signInWithEmailAndPassword(email, password).then(res => {
-                console.log(res);
+
             }).catch(function (error) {
                 // Handle Errors here.
                 var errorCode = error.code;
@@ -272,18 +332,50 @@ $(document).ready(function () {
                 alert(errorCode + " "+ errorMessage);
                 // ...
             });
+
+            
         }); 
 
         $(".open-signup-form").click(function(){
-            $(".signup-section").removeClass('hide')
-            $(".signin-section").addClass('hide')
+            $(".signup-section").removeClass('hide');
+            $(".signin-section").addClass('hide');
         })
 
         $(".open-signin-form").click(function(){
-            $(".signup-section").addClass('hide')
-            $(".signin-section").removeClass('hide')
+            $(".signup-section").addClass('hide');
+            $(".signin-section").removeClass('hide');
         })
 
+        $('#logout').click(function(){
+        auth.signOut();
+      });
+       
+       $("#addResumeForm").submit(function(event){
+        event.preventDefault();
+
+        var id1=$(this).find('input[name=id]').val();
+        var name1=$(this).find('input[name=name]').val();
+        var skinCd1=$(this).find('input[name=skincd]').val();
+
+        alert(id1 + " "+ name1+" "+skinCd1);
+        db.collection('resumes').add({
+
+            id : id1,
+            name : name1,
+            skinCd : skinCd1 
+        }).then(res => {
+            alert("succsess");
+        }).catch(function (error) {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+
+                alert(errorCode + " "+ errorMessage);
+                // ...
+            });
+
+           
+       })
 })
 </script>
 </html>

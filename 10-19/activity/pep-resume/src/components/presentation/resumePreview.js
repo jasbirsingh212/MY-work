@@ -7,20 +7,26 @@ class ResumePreview extends React.PureComponent{
         return (
             <div className="resume-preview">
                 {/* <p> Resume Preview</p> */}
-                <div className="Name" align="center">
+
+                <div className="head">
+                <div className="Name">
                 <h1>{this.props.contactSection.FNAM} {this.props.contactSection.LNAM}</h1>
                 </div>
+                <p className="contact" >{this.props.contactSection.EMAI} | {this.props.contactSection.PHON}</p>
+                <p className="address">{this.props.contactSection.STRT} {this.props.contactSection.CITY} {this.props.contactSection.STAT} {this.props.contactSection.ZIPC}</p>
+                </div>
                 <div className="Professional">
-                <h3>Professional Summary</h3>
+                <h2>Professional Summary</h2>
+                <hr/>
                 <p>{this.props.contactSection.PRSU} {this.props.contactSection.PROF}</p>
                 </div>
-                <div className="contact">
-                    <h3>contact</h3>
-                     <p>Email:{this.props.contactSection.EMAI} Phone:{this.props.contactSection.PHON}</p>
-                </div>
-                <div className="address">
-                    <h3>Address</h3>
-                    <p>{this.props.contactSection.STRT} {this.props.contactSection.CITY} {this.props.contactSection.ZIPC}</p>
+
+                <div className="Education-section">
+                    <h2>Education</h2>
+                    <hr/>
+                    <p>{this.props.educationSection.DGRE} {this.props.educationSection.GRCG}</p>
+                    <p>{this.props.educationSection.SCHO} {this.props.educationSection.CITY}</p>  
+                    <p>{this.props.educationSection.GRDT} {this.props.educationSection.GRYR}</p>
                 </div>
             </div>
         )

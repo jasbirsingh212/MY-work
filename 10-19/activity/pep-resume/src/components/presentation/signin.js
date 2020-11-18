@@ -1,23 +1,21 @@
 import React, { Component } from 'react';
 import {NavLink} from 'react-router-dom';
-function Login (){
+function signin (){
     return (
 
-        <div className="signup-section">
-        <h1 className="signup">Sign up/Register</h1>
-        <form   id="SignupForm">
+        <div className="signin-section ">
+        <h1 className="signin">Sign In/Login</h1>
+        <form   id="SigninForm">
             <div className="container"> 
             <label htmlFor="email"><b>Email</b></label>
             <input name="email" type="email" placeholder="  Enter Email" required></input>
             <label htmlFor="password"><b>Password</b></label>
             <input name="password" type="password" placeholder="  Enter Password" required></input>
-            <label htmlFor="name"><b>Name</b></label>
-            <input name="name" type="name" placeholder="  Enter Name" required></input>
-            <button className="signup-btn btn">Sign up</button>
+            <button className="signin-btn btn">Sign in</button>
 
-            <div className="account" >
-                    <p> If you have an account please
-                        <NavLink to="/login"><a> Login </a>
+            <div className="no-account" >
+                    <p> If you don't have an account please
+                        <NavLink to="/register"><a> Register </a>
                         </NavLink>
                     </p>
             </div>
@@ -27,4 +25,4 @@ function Login (){
         </div>
     )
 }
-export default Login;
+export default signin;

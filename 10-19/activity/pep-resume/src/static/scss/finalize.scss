@@ -1,0 +1,75 @@
+.finalize-section{
+    margin-top: 120px;
+    
+    .finalize{
+        display: flex;
+        flex-direction: row;
+        font-size: 40px;
+
+        .preview-card{
+            width :45%;
+            margin-left: 50px;
+        }
+    }
+
+    .section{
+        margin-top: 0px;
+    }
+
+    .properties{
+        text-align: center;
+        
+        h2{
+            margin-bottom: 0px;
+            font-size: large;
+        }
+        p{
+            color: lightseagreen;
+        }
+
+        .change-font-family{
+            span{
+                color: lightseagreen;
+            }
+            .firstff{
+                margin-right: 30%;
+            }
+            .secondff{
+                margin-right: 30%;
+            }
+        }
+
+        .change-font-size{
+            span{
+                color: lightseagreen;
+            }
+            .firstfs{
+                margin-right: 31%;
+            }
+            .secondfs{
+                margin-right: 31%;
+            }
+        }
+
+        .change-color{
+        .dot {
+            height: 25px;
+            width: 25px;
+            border-radius: 50%;
+            display: inline-block;
+          }
+          .first{
+              margin-right: 35%;
+            background-color: red;
+          }
+          .second{
+            margin-right: 35%;
+            background-color: blue;
+          }
+          .third{
+            background-color: greenyellow;
+          }
+        }
+    }
+    
+}

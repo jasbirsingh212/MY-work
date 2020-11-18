@@ -7,7 +7,7 @@ import Header from './components/presentation/header';
 import Footer from './components/presentation/footer';
 import LandingPage from './components/presentation/landingPage';
 import GettingStarted from './components/presentation/gettingStarted';
-import Login from './components/presentation/login';
+import signin from './components/presentation/signin';
 import Register from './components/presentation/login';
 import AboutUs from './components/presentation/aboutUs';
 import Contacts from './components/presentation/contact';
@@ -27,7 +27,7 @@ function App() {
           <Route path="/resume-templates" component={GettingStarted}></Route>
           {/* <Route path="/resume-templates" component={templatesPage}></Route> */}
           <Route path="/about-us"     component={AboutUs}></Route>
-          <Route path="/login" component={Login}></Route>
+          <Route path="/login" component={signin}></Route>
           <Route path="/register" component={Register}></Route> 
           <Route path="/finalize" component={finalize}></Route>            
           <Route path="/" component={LandingPage}></Route>

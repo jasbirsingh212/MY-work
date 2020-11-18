@@ -9,7 +9,7 @@
     flex: 1 0 20%;
     /* explanation below */
     margin: 15px;
-    height: 310px;
+    height: 315px;
     box-shadow: 0 2px 9px rgba(0, 0, 0, 0.1);
     
     &:hover {
@@ -50,6 +50,24 @@
           display: block;
         }
       }
+
+      label:before {
+        content: url("https://cdn1.iconfinder.com/data/icons/windows8_icons_iconpharm/26/unchecked_checkbox.png");
+        position: absolute;
+        z-index: 100;
+      }
+
+      :checked+label:before {
+        content: url("https://cdn1.iconfinder.com/data/icons/windows8_icons_iconpharm/26/checked_checkbox.png");
+      }
+      
+      input[type=checkbox] {
+        display: none;
+      }
+      /*pure cosmetics:*/
+      label {
+        margin: 10px;
+      }
     }
-  
+    
   }

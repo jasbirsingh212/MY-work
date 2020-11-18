@@ -1,15 +1,16 @@
 import React from "react";
+import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
-import {fieldCd} from './../../constants/typeCode'
+import {fieldCd, skinCodes} from './../../constants/typeCode'
 import ResumePreview from './resumePreview'
 class Contact extends React.Component{
   constructor(props, context){
     super(props);
     this.state ={
-      contactSection:{},
-      educationSection:{}
+      contactSection:this.props.contactSection,
+      educationSection:{},
+      skinCodes : this.props.selected
     }
-    ;
   }
 
   onChange=(event)=>{
@@ -115,4 +116,8 @@ render()  {
             );
         }
 }
-export default Contact;
+
+const mapStateToProps = (state) =>{
+  return state;
+}
+export default connect(mapStateToProps,null)(Contact);
