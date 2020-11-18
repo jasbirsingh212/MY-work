@@ -68,7 +68,7 @@ class finalize extends Component {
                             let i=value.charAt(4);  
                             return( <div className="template-card rounded-border">
                                   {/* <i className="hide" ></i> */}
-                                <input type="checkbox" id={"myCheckbox"+i} checked={this.state.skinCodes.skin1==("myCheckbox"+i)?"true":false} />
+                                <input type="checkbox" id={"myCheckbox"+i} checked={this.state.skinCodes.skinCd.value==("skin"+i)?true:false} />
                                 <label htmlFor={"myCheckbox"+i}>
                                 <img  className='' src={"./../images/" + value + ".svg"}/>
                                 </label>

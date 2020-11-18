@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import {fieldCd, skinCodes} from './../../constants/typeCode'
+import * as actionTypeCd from '../../actions/actionType';
 import ResumePreview from './resumePreview'
 class Contact extends React.Component{
   constructor(props, context){
@@ -9,17 +10,20 @@ class Contact extends React.Component{
     this.state ={
       contactSection:this.props.contactSection,
       educationSection:{},
-      skinCodes : this.props.selected
+      skinCodes : this.props.skinCodes
     }
   }
 
   onChange=(event)=>{
-   const val =event.target.value;
-   const key= event.target.name;
+
+  this.props.setcontact(this.state.contactSection);
+  const val =event.target.value;
+  const key= event.target.name;
 
   this.setState({contactSection:{...this.state.contactSection,[key]:val}})
 
-    console.log(val);
+   console.log(val);
+   
   }
 
 render()  {
@@ -102,11 +106,8 @@ render()  {
             
                     <NavLink to='/getting-started' className="center">Back</NavLink>
                 </div>
-
                 </div>
-            
               </div>
-        
               <div className="preview-card">   
               <ResumePreview contactSection={this.state.contactSection} educationSection={this.state.educationSection} ></ResumePreview>     
               </div>        
@@ -120,4 +121,9 @@ render()  {
 const mapStateToProps = (state) =>{
   return state;
 }
-export default connect(mapStateToProps,null)(Contact);
+const mapDispatchtoProps = (dispatch) => {
+return {
+  setcontact : (value) => dispatch({type:actionTypeCd.addContact, payload:value})
+  }
+}
+export default connect(mapStateToProps,mapDispatchtoProps)(Contact);

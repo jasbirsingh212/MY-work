@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
 import {skinCodes} from '../../constants/typeCode';
+import * as actionTypeCd from '../../actions/actionType';
 import {NavLink} from 'react-router-dom';
 class GettingStarted  extends Component {
     constructor(props, context){
@@ -10,18 +11,24 @@ class GettingStarted  extends Component {
         }; 
       }
 
+    //   componentWillReceiveProps (nextProp){
+    //       console.log(nextProp.skinCodes)
+    //     this.setState({skinCodes : nextProp.skinCodes})
+    //   }
 
-     onClick = (event ) => {
-         
-        //event.preventDefault();
-        let i =event.target.id.charAt(3);
-        this.setState({
-            skinCodes : "myCheckbox"+i
-        })
+     onClick = (skinCd ) => {
+        // console.log(event);
+        // this.props.setSkinCd(event.);
+        // let i =event.target.id.charAt(3);
+        // this.setState({
+        //     skinCodes : "myCheckbox"+i
+        // }) 
+        this.props.setSkinCd(skinCd);                                                                  
      };
 
     render() { 
 
+        console.log(this.state.skinCodes)
         return (  
             <div className="container med gettingStarted">
                 <div className="section">
@@ -34,14 +41,14 @@ class GettingStarted  extends Component {
                     {
                         skinCodes.map((value) => { 
                             let i=value.charAt(4);  
-                            return( <div className="template-card rounded-border">
+                            return( <div className = { (value == this.state.skinCodes ? "selected ": "")+"template-card rounded-border"}>
                                   {/* <i className="hide" ></i> */}
-                                <input type="checkbox" id={"myCheckbox"+i} checked={this.state.skinCodes==("myCheckbox"+i)?"true":false} />
+                                <input type="checkbox" id={"myCheckbox"+i} checked={this.state.skinCodes.skinCd.value==("skin"+i)?true:false} />
                                 <label htmlFor={"myCheckbox"+i}>
                                 <img  className='' src={"./../images/" + value + ".svg"}/>
                                 </label>
                                 <NavLink to="/contact">
-                                <button type="button"   className='btn-select-theme' id={"btn"+i} onClick={this.onClick}>USE TEMPLATE</button>
+                                <button type="button"   className='btn-select-theme' id={"btn"+i} onClick={() => this.onClick(value)}>USE TEMPLATE</button>
                                 </NavLink>
                                 {/* <button type="button"   className='btn-select-theme'>USE TEMPLATE</button> */}
                             </div>);
@@ -59,4 +66,11 @@ class GettingStarted  extends Component {
 const mapStateToProps = (state) =>{
     return state;
   }
-  export default connect(mapStateToProps,null)(GettingStarted);
+
+  const mapDispatchToProps = (dispatch,ownProps) => {
+      console.log(ownProps)
+      return {
+        setSkinCd : (value) => dispatch ({type : actionTypeCd.setSkinCd , payload : {value}})
+      }
+  }
+  export default connect(mapStateToProps,mapDispatchToProps)(GettingStarted);
