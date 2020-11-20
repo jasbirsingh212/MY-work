@@ -14,19 +14,25 @@ class Contact extends React.Component{
     }
   }
 
+  componentWillReceiveProps (nextProp){
+          console.log(nextProp)
+         
+        
+      }
+
   onChange=(event)=>{
 
-  this.props.setcontact(this.state.contactSection);
-  const val =event.target.value;
-  const key= event.target.name;
-
-  this.setState({contactSection:{...this.state.contactSection,[key]:val}})
-
-   console.log(val);
+    this.props.setcontact(this.state.contactSection);
+    const val =event.target.value;
+    const key= event.target.name;
+  
+    this.setState({contactSection:{...this.state.contactSection,[key]:val}});
    
   }
 
 render()  {
+
+      //console.log(this.state.contactSection)
         return (    
             <div className="container med contact">
             <div className="section funnel-section">
@@ -121,9 +127,11 @@ render()  {
 const mapStateToProps = (state) =>{
   return state;
 }
+
 const mapDispatchtoProps = (dispatch) => {
 return {
-  setcontact : (value) => dispatch({type:actionTypeCd.addContact, payload:value})
+  setcontact : (contactSection) => dispatch({type:actionTypeCd.addContact, payload:{contactSection}})
   }
 }
+
 export default connect(mapStateToProps,mapDispatchtoProps)(Contact);

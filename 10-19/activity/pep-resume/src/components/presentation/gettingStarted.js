@@ -41,7 +41,7 @@ class GettingStarted  extends Component {
                     {
                         skinCodes.map((value) => { 
                             let i=value.charAt(4);  
-                            return( <div className = { (value == this.state.skinCodes ? "selected ": "")+"template-card rounded-border"}>
+                             return( <div className = "template-card rounded-border">
                                   {/* <i className="hide" ></i> */}
                                 <input type="checkbox" id={"myCheckbox"+i} checked={this.state.skinCodes.skinCd.value==("skin"+i)?true:false} />
                                 <label htmlFor={"myCheckbox"+i}>
@@ -73,4 +73,5 @@ const mapStateToProps = (state) =>{
         setSkinCd : (value) => dispatch ({type : actionTypeCd.setSkinCd , payload : {value}})
       }
   }
+  
   export default connect(mapStateToProps,mapDispatchToProps)(GettingStarted);

@@ -5,9 +5,11 @@ function rootReducer(state=initialstate, action){
         case actionType.setSkinCd:
             return {...state,skinCodes:{skinCd : action.payload}};
         case actionType.addContact:
-                return {...state,contactSection:action.payload};
+            return {...state,contactSection:action.payload};
+        case actionType.addEducation:
+            return {...state,educationSection:action.payload};
         default:
-            return state  
+            return state ; 
     }
 
 }
