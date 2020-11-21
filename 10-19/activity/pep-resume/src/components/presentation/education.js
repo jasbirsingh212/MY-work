@@ -4,20 +4,22 @@ import {NavLink} from 'react-router-dom';
 import {fieldCd} from './../../constants/typeCode'
 import { Component } from 'react';
 import ResumePreview from "./resumePreview";
-import * as actionTypeCd from '../../actions/actionType';
+import * as actionTypeCd from '../../actions/actionTypeCodes';
+import { bindActionCreators } from 'redux';
+import * as educationAction from  '../../actions/educationAction';
 class Education extends Component {
   constructor(props, context){
     super(props);
     this.state ={
       contactSection:this.props.contactSection,
       educationSection:this.props.educationSection,
-      skinCodes : this.props.skinCodes
+      document : this.props.document
     }
   }
 
   onChange = () => {
 
-      this.props.seteducation(this.state.educationSection);
+      this.props.actions.addEducation(this.state.educationSection);
   }
 
   render() { 
@@ -72,20 +74,12 @@ class Education extends Component {
           </div>            
         </div>
         <div className="preview-card">
-          <ResumePreview contactSection={this.state.contactSection} skinCd={this.state.skinCodes} educationSection={this.state.educationSection}></ResumePreview>        
+          <ResumePreview contactSection={this.state.contactSection} document={this.state.document} educationSection={this.state.educationSection}></ResumePreview>        
         </div>      
       </div>
     </div>
      );
   }
 }
-const mapStateToProps = (state) =>{
-  return state;
-}
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    seteducation : (educationSection) => dispatch({type : actionTypeCd.addEducation, payload : {educationSection}})
-  }
-}
-export default connect(mapStateToProps,mapDispatchToProps)(Education);
+export default Education;

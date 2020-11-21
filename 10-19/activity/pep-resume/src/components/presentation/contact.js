@@ -2,7 +2,10 @@ import React from "react";
 import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import {fieldCd, skinCodes} from './../../constants/typeCode'
-import * as actionTypeCd from '../../actions/actionType';
+import * as actionTypeCd from '../../actions/actionTypeCodes';
+import { bindActionCreators } from 'redux';
+import * as contactAction from  '../../actions/contactAction'; 
+
 import ResumePreview from './resumePreview'
 class Contact extends React.Component{
   constructor(props, context){
@@ -10,19 +13,19 @@ class Contact extends React.Component{
     this.state ={
       contactSection:this.props.contactSection,
       educationSection:{},
-      skinCodes : this.props.skinCodes
+      document : this.props.document
     }
   }
 
   componentWillReceiveProps (nextProp){
-          console.log(nextProp)
+          console.log("next props "+nextProp)
          
         
       }
 
   onChange=(event)=>{
 
-    this.props.setcontact(this.state.contactSection);
+    this.props.actions.addContact(this.state.contactSection);
     const val =event.target.value;
     const key= event.target.name;
   
@@ -124,14 +127,16 @@ render()  {
         }
 }
 
-const mapStateToProps = (state) =>{
-  return state;
-}
+export default Contact;
 
-const mapDispatchtoProps = (dispatch) => {
-return {
-  setcontact : (contactSection) => dispatch({type:actionTypeCd.addContact, payload:{contactSection}})
-  }
-}
+// const mapStateToProps = (state) =>{
+//   return {contactSection : state.contactSection};
+// }
 
-export default connect(mapStateToProps,mapDispatchtoProps)(Contact);
+// const mapDispatchtoProps = (dispatch) => {
+// return {
+//     actions : bindActionCreators(contactAction,dispatch)
+//   }
+// }
+
+// export default connect(mapStateToProps,mapDispatchtoProps)(Contact);

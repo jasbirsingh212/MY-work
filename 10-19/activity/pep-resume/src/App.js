@@ -6,13 +6,14 @@ import { Route,Switch } from 'react-router-dom';
 import Header from './components/presentation/header';
 import Footer from './components/presentation/footer';
 import LandingPage from './components/presentation/landingPage';
-import GettingStarted from './components/presentation/gettingStarted';
+import GettingStarted from './components/container/document';
 import signin from './components/presentation/signin';
 import Register from './components/presentation/login';
 import AboutUs from './components/presentation/aboutUs';
-import Contacts from './components/presentation/contact';
-import Education from './components/presentation/education';
-import finalize from './components/presentation/finalize';
+import Contacts from './components/container/contact';
+import Education from './components/container/education';
+import finalize from './components/container/finalize';
+
 // import templatesPage from './components/presentation/templatesPage';
 
 

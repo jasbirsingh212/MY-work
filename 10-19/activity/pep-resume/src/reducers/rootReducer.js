@@ -1,16 +1,14 @@
-import initialstate from './initialstate.json'
-import * as actionType from '../actions/actionType'
-function rootReducer(state=initialstate, action){
-    switch (action.type) {
-        case actionType.setSkinCd:
-            return {...state,skinCodes:{skinCd : action.payload}};
-        case actionType.addContact:
-            return {...state,contactSection:action.payload};
-        case actionType.addEducation:
-            return {...state,educationSection:action.payload};
-        default:
-            return state ; 
-    }
+import initialstate from './initialstate.json';
+import * as actionTypeCd from '../actions/actionTypeCodes';
+import {combineReducers} from 'redux';
+import documentReducer from './documentReducer'
+import contactReducer from './contactReducer'
+import educationReducer from './educationReducer'
 
-}
-export default rootReducer;
+export default combineReducers({
+  document : documentReducer,
+ contactSection : contactReducer,
+  educationSection : educationReducer
+})
+
+//export default rootReducer ;

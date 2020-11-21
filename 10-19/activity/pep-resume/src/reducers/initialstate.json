@@ -5,17 +5,9 @@
 
     "educationSection" : {
 
-        "SCHO" : "",
-        "DGRE" : "",
-        "GRCG" : "",
-        "CITY" :"",
-        "GRDT" :"",
-        "GRYR" : ""
-
-
     },
 
-    "skinCodes" :{
+    "document" :{
 
         "skinCd" : ""
     }

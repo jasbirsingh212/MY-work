@@ -10,7 +10,7 @@ class finalize extends Component {
         this.state ={
           contactSection:this.props.contactSection,
           educationSection:this.props.educationSection,
-          skinCodes : this.props.skinCodes
+          document : this.props.document
         }
     }
     
@@ -68,7 +68,7 @@ class finalize extends Component {
                             let i=value.charAt(4);  
                             return( <div className="template-card rounded-border">
                                   {/* <i className="hide" ></i> */}
-                                <input type="checkbox" id={"myCheckbox"+i} checked={this.state.skinCodes.skinCd.value==("skin"+i)?true:false} />
+                                <input type="checkbox" id={"myCheckbox"+i} checked={this.state.document.skinCd==("skin"+i)?true:false} />
                                 <label htmlFor={"myCheckbox"+i}>
                                 <img  className='' src={"./../images/" + value + ".svg"}/>
                                 </label>
@@ -85,8 +85,14 @@ class finalize extends Component {
          );
     }
 }
+
+export default finalize;
  
-const mapStateToProps = (state) =>{
-    return state;
-  }
-  export default connect(mapStateToProps,null)(finalize);
+// const mapStateToProps = (state) =>{
+//     return state;
+//   }
+// const mapDispatchToProps = () => {
+
+// }
+
+//   export default connect(mapStateToProps,mapDispatchToProps)(finalize);
