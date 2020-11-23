@@ -5,10 +5,10 @@ export const addEducation=(educationSection)=>{
             // db call firebase           
 
             // on db call success
-            await dispatch({ type: actionTypeCd.ADD_DOCUMENT, payload:educationSection })
+            await dispatch({ type: actionTypeCd.ADD_EDUCATION, payload:educationSection })
         }      
         catch(err){
-            await dispatch({ type: actionTypeCd.ADD_DOCUMENT_ERROR, payload:educationSection })
+            await dispatch({ type: actionTypeCd.ADD_EDUCATION_ERROR, payload:educationSection })
         }
     }
 }

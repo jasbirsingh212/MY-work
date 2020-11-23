@@ -1,12 +1,8 @@
 import React from "react";
-import { connect } from "react-redux";
 import {NavLink} from 'react-router-dom';
 import {fieldCd} from './../../constants/typeCode'
 import { Component } from 'react';
 import ResumePreview from "./resumePreview";
-import * as actionTypeCd from '../../actions/actionTypeCodes';
-import { bindActionCreators } from 'redux';
-import * as educationAction from  '../../actions/educationAction';
 class Education extends Component {
   constructor(props, context){
     super(props);
@@ -17,7 +13,10 @@ class Education extends Component {
     }
   }
 
-  onChange = () => {
+  onChange = (event) => {
+    const val =event.target.value;
+    const key= event.target.name;
+    this.setState({educationSection:{...this.state.educationSection,[key]:val}});
 
       this.props.actions.addEducation(this.state.educationSection);
   }
@@ -30,37 +29,37 @@ class Education extends Component {
           <h2 className="form-heading center">Educational Details</h2>
           <div className="form-section">
             <div className="input-group"><label>College Name</label>
-              <div className="effect"><input  type="text"  name={fieldCd.SchoolName} onChange={this.onChange} /><span></span>
+              <div className="effect"><input  type="text" value={this.state.educationSection.SCHO} name={fieldCd.SchoolName} onChange={this.onChange} /><span></span>
               </div>
               <div className="error"></div>
             </div>
 
             <div className="input-group"><label>Degree</label>
-              <div className="effect"><input  type="text"  name={fieldCd.Degree} onChange={this.onChange} /><span></span>
+              <div className="effect"><input  type="text" value={this.state.educationSection.DGRE} name={fieldCd.Degree} onChange={this.onChange} /><span></span>
               </div>
               <div className="error"></div>
             </div>
 
             <div className="input-group"><label>CGPA</label>
-              <div className="effect"><input  type="text" name={fieldCd.GraduationCGPA} onChange={this.onChange} /><span></span>
+              <div className="effect"><input  type="text" value={this.state.educationSection.GRCG} name={fieldCd.GraduationCGPA} onChange={this.onChange} /><span></span>
               </div>
               <div className="error"></div>
             </div>
   
             <div className="input-group"><label>City/State</label>
-              <div className="effect"><input type="text"  name={fieldCd.City} onChange={this.onChange} /><span></span>
+              <div className="effect"><input type="text"  value={this.state.educationSection.CITY} name={fieldCd.City} onChange={this.onChange} /><span></span>
               </div>
               <div className="error"></div>
             </div>
           
             <div className="input-group"><label>Graduation Month</label>
-              <div className="effect"><input  type="text" name={fieldCd.GraduationDate} onChange={this.onChange} /><span></span>
+              <div className="effect"><input  type="text" value={this.state.educationSection.GRDT} name={fieldCd.GraduationDate} onChange={this.onChange} /><span></span>
               </div>
               <div className="error"></div>
             </div>
 
             <div className="input-group"><label>Graduation Year</label>
-              <div className="effect"><input  type="text"  name={fieldCd.GraduationYear} onChange={this.onChange}  /><span></span>
+              <div className="effect"><input  type="text" value={this.state.educationSection.GRYR} name={fieldCd.GraduationYear} onChange={this.onChange}  /><span></span>
               </div>
               <div className="error"></div>
             </div>      

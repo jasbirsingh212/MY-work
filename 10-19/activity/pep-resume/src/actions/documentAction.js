@@ -5,6 +5,7 @@ export const addDocument=(skinCd)=>{
             // db call firebase           
 
             // on db call success
+            // alert("in action");
             await dispatch({ type: actionTypeCd.ADD_DOCUMENT, payload:skinCd })
         }      
         catch(err){

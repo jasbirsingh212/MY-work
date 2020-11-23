@@ -5,7 +5,10 @@ import * as contactAction from  '../../actions/contactAction';
 import Contact from './../presentation/contact'
 
 const mapStateToProps = (state) =>{
-    return {contactSection : state.contactSection};
+    return {
+      contactSection : state.contactSection,
+      document : state.document
+    };
   }
   
   const mapDispatchtoProps = (dispatch) => {

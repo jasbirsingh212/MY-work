@@ -1,5 +1,10 @@
 .finalize-section{
     margin-top: 120px;
+
+    // hr{
+    //     margin-top: 0px;
+    //     margin-bottom: 0px;
+    // }
     
     .finalize{
         display: flex;
@@ -60,7 +65,7 @@
           }
           .first{
               margin-right: 35%;
-            background-color: red;
+              background-color: red;
           }
           .second{
             margin-right: 35%;
@@ -69,6 +74,10 @@
           .third{
             background-color: greenyellow;
           }
+        }
+
+        .btn{
+            margin-bottom: 20px
         }
     }
     

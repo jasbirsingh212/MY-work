@@ -1,9 +1,8 @@
 import React from 'react';
-
 class ResumePreview extends React.PureComponent{
     
+    
     render() {     
-        
         return (
             <div className="resume-preview">
                 {/* <p> Resume Preview</p> */}
@@ -24,9 +23,13 @@ class ResumePreview extends React.PureComponent{
                 <div className="Education-section">
                     <h2>Education</h2>
                     <hr/>
-                    <p>{this.props.educationSection.DGRE} {this.props.educationSection.GRCG}</p>
-                    <p>{this.props.educationSection.SCHO} {this.props.educationSection.CITY}</p>  
-                    <p>{this.props.educationSection.GRDT} {this.props.educationSection.GRYR}</p>
+                    <p>{this.props.educationSection.DGRE} (CGPA : {this.props.educationSection.GRCG})</p>
+                    <p>{this.props.educationSection.SCHO} {this.props.educationSection.CITY} | {this.props.educationSection.GRDT} {this.props.educationSection.GRYR}</p>
+                </div>
+
+                <div className="Education-section">
+                    <h2>Skils</h2>
+                    <hr/>
                 </div>
             </div>
         )

@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import GettingStarted from './gettingStarted';
 import {skinCodes} from '../../constants/typeCode';
-import {NavLink} from 'react-router-dom';
 import ResumePreview from './resumePreview';
-import { connect } from "react-redux";
+
 class finalize extends Component {
     constructor(props, context){
         super(props);
@@ -44,9 +42,9 @@ class finalize extends Component {
                 <hr/>
                 <div className="change-color">
                     <h2>Change Color</h2>
-                    <span class="dot first"></span>
-                    <span class="dot second"></span>
-                    <span class="dot third"></span>
+                    <span className="dot first"></span>
+                    <span className="dot second"></span>
+                    <span className="dot third"></span>
                 </div>
                 <hr/>
                 <div className="change-template">
@@ -68,11 +66,11 @@ class finalize extends Component {
                             let i=value.charAt(4);  
                             return( <div className="template-card rounded-border">
                                   {/* <i className="hide" ></i> */}
-                                <input type="checkbox" id={"myCheckbox"+i} checked={this.state.document.skinCd==("skin"+i)?true:false} />
+                                <input type="checkbox" id={"myCheckbox"+i} defaultChecked={this.state.document.skinCd==("skin"+i)?true:false} />
                                 <label htmlFor={"myCheckbox"+i}>
                                 <img  className='' src={"./../images/" + value + ".svg"}/>
                                 </label>
-                                {/* <button type="button"   className='btn-select-theme'>USE TEMPLATE</button> */}
+                                { <button type="button"   className='btn-select-theme'>USE TEMPLATE</button> }
                             </div>);
                             
                         })

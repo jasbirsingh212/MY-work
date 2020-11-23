@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import {skinCodes} from '../../constants/typeCode';
 import { connect } from "react-redux";
-import finalize from './../presentation/finalize';
+import Finalize from './../presentation/finalize';
+import * as finalizeAction from '../../actions/finalizeAction';
+import {bindActionCreators} from 'redux';
 
 const mapStateToProps = (state) =>{
     return {
@@ -10,11 +11,12 @@ const mapStateToProps = (state) =>{
         document : state.document
     };
   }
-
-
-const mapDispatchToProps = () => {
+  
+const mapDispatchToProps = (dispatch) => {
+  return {
+    actions : bindActionCreators(finalizeAction,dispatch)
+  }
 
 }
 
-
-  export default connect(mapStateToProps,mapDispatchToProps)(finalize);
+export default connect(mapStateToProps,mapDispatchToProps)(Finalize);

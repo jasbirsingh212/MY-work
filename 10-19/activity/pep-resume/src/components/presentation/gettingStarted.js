@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import {skinCodes} from '../../constants/typeCode';
 import {NavLink} from 'react-router-dom'; 
 
+// alert("stop 2 component")
 class GettingStarted  extends Component {
     constructor(props, context){
         super(props);
@@ -24,13 +25,17 @@ class GettingStarted  extends Component {
         // }) 
        // alert(skinCd)
         //this.props.setSkinCd(skinCd);
+        //alert("on click");
+        this.setState({
+            document : this.props.document
+        })
         this.props.actions.addDocument(skinCd);
-        this.props.actions.incrementIfOdd(skinCd);                                                               
+        //this.props.actions.incrementIfOdd(skinCd);                                                               
      };
 
     render() { 
 
-        console.log(this.state.document)
+        //console.log(this.state.document)
         return (  
             <div className="container med gettingStarted">
                 <div className="section">
@@ -45,7 +50,7 @@ class GettingStarted  extends Component {
                             let i=value.charAt(4);  
                              return( <div className = "template-card rounded-border">
                                   {/* <i className="hide" ></i> */}
-                                <input type="checkbox" id={"myCheckbox"+i} checked={this.state.document.skinCd== ("skin"+i)?true:false} />
+                                <input type="checkbox" id={"myCheckbox"+i}  defaultChecked={(this.state.document.skinCd == "skin"+i) ? true : false}/>
                                 <label htmlFor={"myCheckbox"+i}>
                                 <img  className='' src={"./../images/" + value + ".svg"}/>
                                 </label>
