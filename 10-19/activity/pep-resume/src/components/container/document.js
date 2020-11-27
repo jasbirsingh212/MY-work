@@ -9,7 +9,10 @@ import GettingStarted from './../presentation/gettingStarted';
 const mapStateToProps = (state) =>{ //data dera hai
     //  alert("mapStateToProps");
     //console.log(state)
-     return {document : state.document};
+     return {
+       document : state.document,
+        auth:state.auth
+      };
    }
  
    const mapDispatchToProps = (dispatch,ownProps) => {

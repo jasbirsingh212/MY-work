@@ -1,14 +1,17 @@
-import initialstate from './initialstate.json';
-import * as actionTypeCd from '../actions/actionTypeCodes';
+
 import {combineReducers} from 'redux';
 import documentReducer from './documentReducer'
 import contactReducer from './contactReducer'
-import educationReducer from './educationReducer'
+import educationReducer from './educationReducer';
+import authReducer from './authReducer'
+import { firebaseReducer } from "react-redux-firebase";
 
 export default combineReducers({
   document : documentReducer,
  contactSection : contactReducer,
-  educationSection : educationReducer
+  educationSection : educationReducer,
+  firebase:firebaseReducer,
+  auth:authReducer
 })
 
 //export default rootReducer ;

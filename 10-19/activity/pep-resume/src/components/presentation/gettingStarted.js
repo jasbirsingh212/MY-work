@@ -7,7 +7,8 @@ class GettingStarted  extends Component {
     constructor(props, context){
         super(props);
         this.state ={
-           document : this.props.document
+           document : this.props.document,
+           auth : this.props.auth
         }; 
       }
 
@@ -26,14 +27,24 @@ class GettingStarted  extends Component {
        // alert(skinCd)
         //this.props.setSkinCd(skinCd);
         //alert("on click");
-        this.setState({
-            document : this.props.document
-        })
-        this.props.actions.addDocument(skinCd);
+        // this.setState({
+        //     document : this.props.document
+        // })
+        if(this.props.document && this.props.document.id){
+                this.props.actions.updateSkinCd(this.props.document.id,skinCd);
+        }
+        else{
+
+            this.props.actions.addDocument(skinCd);
+        }
+        // this.props.actions.addDocument(skinCd);
         //this.props.actions.incrementIfOdd(skinCd);                                                               
      };
 
     render() { 
+
+        console.log(this.state);
+        //console.log(this.state.auth);
 
         //console.log(this.state.document)
         return (  

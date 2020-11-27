@@ -1,4 +1,4 @@
-.resume-preview{
+.skin1{
 
     h2{
         text-align: center;
@@ -30,6 +30,47 @@
 
         h2{
         text-align: center;
+        font-size: 20px;
+        }
+    }
+}
+
+.skin2{
+
+    h1 {
+        text-align: left;
+    }
+
+    h2{
+        //text-align: center;
+        font-size: 20px;
+        background-color: khaki;
+    }
+
+    .head{
+       text-align: left;
+        // .Name
+        // {
+            
+           
+        // }
+        .contact
+        {
+            margin-bottom: unset;
+            font-size: small;
+        }
+
+        // .address{
+           
+        //    //font-size: small; 
+        // }
+
+    }
+
+    .Professional{
+
+        h2{
+        //text-align: center;
         font-size: 20px;
         }
     }

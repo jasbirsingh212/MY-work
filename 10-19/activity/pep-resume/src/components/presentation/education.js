@@ -18,7 +18,15 @@ class Education extends Component {
     const key= event.target.name;
     this.setState({educationSection:{...this.state.educationSection,[key]:val}});
 
-      this.props.actions.addEducation(this.state.educationSection);
+    if(this.state.document && this.state.document.id  && this.state.educationSection.createdDate)
+    {
+    this.props.actions.updateEducation(this.state.document.id,this.state.educationSection);
+    }
+    else
+    {
+      this.props.actions.addEducation(this.state.document.id,this.state.educationSection);
+    }
+
   }
 
   render() { 

@@ -1,11 +1,18 @@
 import * as actionTypeCd from './actionTypeCodes';
+//import  uuid from 'react-uuid';
 
-export const addContact=(contactSection)=>{
-    return async(dispatch)=>{
+export const addContact=(contactSection,id)=>{
+    return async(dispatch,getState,{getFirebase,getFirestore})=>{
         try{
-            // db call firebase           
-
-            // on db call success
+            // db call firebase   
+            let fireStore=getFirestore();
+            //let id = uuid();
+            // let doc = {
+            //      contactSection,
+            //     "createdDate" : new Date()
+            // }
+            contactSection.createdDate= new Date();
+            fireStore.collection('resumes').doc(id).set({contactSection },{merge :true})
             await dispatch({ type: actionTypeCd.ADD_CONTACT, payload: contactSection})
         }      
         catch(err){
@@ -14,9 +21,17 @@ export const addContact=(contactSection)=>{
     }
 }
 export const updateContact=(documentId , contactSection)=>{
-    return async(dispatch)=>{
+    return async(dispatch,getState,{getFirebase,getFirestore})=>{
         try{
             // db call 
+            let fireStore=getFirestore();
+            //let id = uuid();
+            // let doc = {
+            //      contactSection,
+            //     "createdDate" : new Date()
+            // }
+            contactSection.modifiedDate= new Date ();
+            fireStore.collection('resumes').doc(documentId).set({contactSection},{merge :true})
             
 
             // on db call success

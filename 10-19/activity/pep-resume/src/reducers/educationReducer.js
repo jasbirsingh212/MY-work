@@ -8,13 +8,13 @@ function educationReducer(state = initialstate.educationSection, action) {
          return update(state , {$set : action.payload})
 
       case actionTypeCd.ADD_EDUCATION_ERROR:
-          return {state:action.payload}
+          return update(state,{$merge:  action.payload});
 
       case actionTypeCd.UPDATE_EDUCATION:
-            return {state:action.payload}
+            return update(state,{$merge:  action.payload});
       
      case actionTypeCd.UPDATE_EDUCATION_ERROR:
-            return {state:action.payload}
+            return update(state,{$merge:  action.payload});
           
 
       default:

@@ -8,7 +8,7 @@ class Contact extends React.Component{
     super(props);
     this.state ={
       contactSection:this.props.contactSection,
-      educationSection:{},
+      educationSection:this.props.educationSection,
       document : this.props.document
     }
   }
@@ -26,8 +26,15 @@ class Contact extends React.Component{
     const key= event.target.name;
   
     this.setState({contactSection:{...this.state.contactSection,[key]:val}});
-    this.props.actions.addContact(this.state.contactSection);
-   
+
+    if(this.state.document && this.state.document.id && this.state.contactSection.createdDate)
+    {
+    this.props.actions.updateContact(this.state.document.id,this.state.contactSection);
+    }
+    else
+    {
+      this.props.actions.addContact(this.state.contactSection,this.state.document.id);
+    }
   }
 
 render()  {

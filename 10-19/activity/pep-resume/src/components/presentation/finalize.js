@@ -12,10 +12,22 @@ class finalize extends Component {
         }
     }
     
+
+    // onChange = () => {
+        
+    //     this.setState({
+    //     contactSection:this.props.contactSection,
+    //       educationSection:this.props.educationSection,
+    //       document : this.props.document
+
+    //     })
+
+    //     this.props.actions.addFinalize();
+    // }
     render() { 
         return ( 
 
-            <div className="finalize-section">
+            <div className="finalize-section" >
             <div className="finalize">
             <div className="preview-card"> 
             <ResumePreview contactSection={this.state.contactSection} educationSection={this.state.educationSection}></ResumePreview>

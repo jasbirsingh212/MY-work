@@ -7,7 +7,8 @@ import Contact from './../presentation/contact'
 const mapStateToProps = (state) =>{
     return {
       contactSection : state.contactSection,
-      document : state.document
+      document : state.document,
+      educationSection : state.educationSection
     };
   }
   
