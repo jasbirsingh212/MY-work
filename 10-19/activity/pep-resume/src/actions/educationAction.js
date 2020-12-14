@@ -32,6 +32,34 @@ export const updateEducation=(documentId , educationSection)=>{
     }
 }
 
+export const get=(documentId)=>{
+    return async(dispatch,getState,{getFirebase,getFirestore})=>{
+        try{
+            // db call firebase   
+            let firebStore=getFirestore();
+            let firebase=getFirebase();
+            let doc1={}
+            firebStore.collection('resumes').doc(documentId).get().then(function(doc) {
+                if (doc.exists) {
+                    //console.log("Document data:", doc.data());
+                    doc1=doc.data().educationSection;
+                    if(doc1)
+                    console.log("this is education :",doc1)
+                } else {
+                    // doc.data() will be undefined in this case
+                    console.log("No such document!");
+                }
+            }).catch(function(error) {
+                console.log("Error getting document:", error);
+            }); 
+
+            await dispatch({ type: actionTypeCd.UPDATE_EDUCATION, payload:doc1})
+        }
+        catch(error){
+           // await dispatch({ type: actionTypeCd.UPDATE_SKIN_CODE_ERROR, payload:error })
+        }
+    }
+}
 // export const incrementIfOdd = (skinCd) => {
 //     return (dispatch,getState) => {
 //         const {document} = getState();

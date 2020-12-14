@@ -13,6 +13,22 @@ class Education extends Component {
     }
   }
 
+  
+  componentDidMount() {
+   
+    const {document} = this.state;
+ 
+    if(document && document.id){
+        
+        //console.log("component did mount")
+        this.props.actions.get(document.id)
+        //console.log("yes");
+    }
+    else{
+        console.log("contact no document");
+    }
+}
+
   onChange = (event) => {
     const val =event.target.value;
     const key= event.target.name;

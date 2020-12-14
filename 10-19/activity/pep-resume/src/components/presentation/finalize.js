@@ -8,10 +8,28 @@ class finalize extends Component {
         this.state ={
           contactSection:this.props.contactSection,
           educationSection:this.props.educationSection,
-          document : this.props.document
+          document : this.props.document,
+          show :false
         }
     }
-    
+
+  showModal = () => {
+    this.setState({ show: true });
+  }
+  
+  hideModal = () => {
+    this.setState({ show: false });
+  }
+
+  onClick = (skin) => {
+
+    this.setState({document:{...this.state.document,skinCd : skin}}/*,()=>{console.log("this is set state finalize :",this.state.document.skinCd)}*/)
+
+    if(this.props.document && this.props.document.id){
+            this.props.actions.updateSkinCd(this.props.document.id,skin);
+    }                                                              
+ };
+
 
     // onChange = () => {
         
@@ -25,6 +43,8 @@ class finalize extends Component {
     //     this.props.actions.addFinalize();
     // }
     render() { 
+
+      console.log(this.state.document.skinCd);
         return ( 
 
             <div className="finalize-section" >
@@ -61,7 +81,30 @@ class finalize extends Component {
                 <hr/>
                 <div className="change-template">
                 <h2>Change Template</h2>
-                <button className="btn btn-select-theme" onClick={this.onClick}>Change Template</button>
+                {/* <main> */}
+                <div>
+                <Modal show={this.state.show} handleClose={this.hideModal} >
+                <div className="styleTemplate ">
+                    {
+                        skinCodes.map((value) => { 
+                            let i=value.charAt(4);  
+                            return( <div className="template-card rounded-border ">
+                                  {/* <i className="hide" ></i> */}
+                                <input type="checkbox" id={"myCheckbox"+i} defaultChecked={this.state.document.skinCd==("skin"+i)?true:false} />
+                                <label htmlFor={"myCheckbox"+i}>
+                                <img  className='' src={"./../images/" + value + ".svg"}/>
+                                </label>
+                                { <button type="button"   className='btn-select-theme' onClick={()=>this.onClick(value)}>USE TEMPLATE</button> }
+                            </div>);
+                            
+                        })
+                    }
+                    </div>
+                
+                </Modal>
+                </div>
+                {/* </main> */}
+                <button className="btn btn-select-theme" onClick={this.showModal} /*onClick={this.onClick}*/>Change Template</button>
                 </div>
             </div>
             </div>
@@ -76,7 +119,7 @@ class finalize extends Component {
                     {
                         skinCodes.map((value) => { 
                             let i=value.charAt(4);  
-                            return( <div className="template-card rounded-border">
+                            return( <div className="template-card rounded-border zoom">
                                   {/* <i className="hide" ></i> */}
                                 <input type="checkbox" id={"myCheckbox"+i} defaultChecked={this.state.document.skinCd==("skin"+i)?true:false} />
                                 <label htmlFor={"myCheckbox"+i}>
@@ -95,6 +138,26 @@ class finalize extends Component {
          );
     }
 }
+
+const Modal = ({ handleClose, show, children }) => {
+    const showHideClassName = show ? 'modal display-block' : 'modal display-none';
+  
+    return (
+      <div className={showHideClassName}>
+        <section className='modal-main'>
+          {children}
+          <button
+            onClick={handleClose}
+         className="btn btn-select-theme" >
+            Close
+          </button>
+        </section>
+      </div>
+    );
+  };
+
+const container = document.createElement('div');
+document.body.appendChild(container);
 
 export default finalize;
  

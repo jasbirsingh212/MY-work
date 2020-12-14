@@ -19,7 +19,8 @@ UNSAFE_componentWillReceiveProps(nextProps){
       
     this.setState({auth:update(this.state.auth,{$merge: nextProps.auth})});      
     if(nextProps.fbData.uid){
-      this.props.history.push('/')
+        // console.log(nextProps.fbData.uid);
+      this.props.history.push('/',nextProps.fbData.uid)
     }
   }
 
@@ -38,7 +39,7 @@ onSubmit=()=>{
     render() { 
         return (
 
-            <div className="signup-section">
+            <div className="signup-section ">
             <h1 className="signup">Sign up/Register</h1>
             
                 <div className="container"> 

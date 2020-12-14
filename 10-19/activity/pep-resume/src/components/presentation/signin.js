@@ -21,7 +21,7 @@ import {NavLink} from 'react-router-dom'
     }
 
 
-    componentWillReceiveProps(nextProps){
+    UNSAFE_componentWillReceiveProps(nextProps){
       
       this.setState({auth:update(this.state.auth,{$merge: nextProps.auth})});      
       if(nextProps.fbData.uid){
@@ -40,7 +40,7 @@ render(){
             <label htmlFor="password"><b>Password</b></label>
             <input name="password" type="password" value={this.state.auth.password} onChange={this.onChange} placeholder="Enter Password" required></input>
             <button className="signin-btn btn" onClick={this.onSubmit}>Sign in</button>
-        <div className='error-occued'>
+        <div className='error-occured'>
             {this.state.auth.ErrorMessage}
         </div>
             <div className="no-account" >

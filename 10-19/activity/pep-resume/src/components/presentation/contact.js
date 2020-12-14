@@ -13,6 +13,21 @@ class Contact extends React.Component{
     }
   }
 
+  componentDidMount() {
+   
+    const {document} = this.state;
+ 
+    if(document && document.id){
+        
+        //console.log("component did mount")
+        this.props.actions.get(document.id)
+        //console.log("yes");
+    }
+    else{
+        console.log("contact no document");
+    }
+}
+
   // componentWillReceiveProps (nextProp){
   //         console.log("next props "+nextProp)
          

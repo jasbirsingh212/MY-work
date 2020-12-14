@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+//import React, { Component } from 'react';
 import { connect } from "react-redux";
 import Finalize from './../presentation/finalize';
 import * as finalizeAction from '../../actions/finalizeAction';

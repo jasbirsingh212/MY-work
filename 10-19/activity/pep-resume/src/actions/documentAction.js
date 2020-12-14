@@ -23,6 +23,7 @@ export const addDocument=(skinCd)=>{
         }
     }
 }
+
 export const updateSkinCd=(documentId , skinCd)=>{
     return async(dispatch,getState,{getFirebase,getFirestore})=>{
         try{
@@ -43,6 +44,35 @@ export const updateSkinCd=(documentId , skinCd)=>{
         }
     }
 }
+
+export const get=(documentId)=>{
+    return async(dispatch,getState,{getFirebase,getFirestore})=>{
+        try{
+            // db call firebase   
+            let firebStore=getFirestore();
+            let firebase=getFirebase();
+            let doc1={}
+            firebStore.collection('resumes').doc(documentId).get().then(function(doc) {
+                if (doc.exists) {
+                    //console.log("Document data:", doc.data());
+                    doc1=doc.data().document;
+                    console.log("this is doc1 :",doc1)
+                } else {
+                    // doc.data() will be undefined in this case
+                    console.log("No such document!");
+                }
+            }).catch(function(error) {
+                console.log("Error getting document:", error);
+            }); 
+
+            await dispatch({ type: actionTypeCd.UPDATE_SKIN_CODE, payload:doc1})
+        }
+        catch(error){
+           // await dispatch({ type: actionTypeCd.UPDATE_SKIN_CODE_ERROR, payload:error })
+        }
+    }
+}
+
 
 export const incrementIfOdd = (skinCd) => {
     return (dispatch,getState) => {

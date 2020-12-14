@@ -1,14 +1,14 @@
 import React,{Component} from 'react';
 import {skinCodes} from '../../constants/typeCode';
 import {NavLink} from 'react-router-dom'; 
-
+import SigninErr from './signinErr';
 // alert("stop 2 component")
 class GettingStarted  extends Component {
     constructor(props, context){
         super(props);
         this.state ={
            document : this.props.document,
-           auth : this.props.auth
+            uid : this.props.uid
         }; 
       }
 
@@ -16,6 +16,40 @@ class GettingStarted  extends Component {
     //       console.log(nextProp.skinCodes)
     //     this.setState({skinCodes : nextProp.skinCodes})
     //   }
+
+    //   componentDidMount(){
+    //       const {uid ,document} = this.state;
+    //       if(uid && document && document.id)
+    //       {
+    //         //  axios.get('https://jsonplaceholder.typicode.com/posts').
+    //         //  then((res) => {
+    //         //     console.log("jasbir")
+    //         //  }).catch((err) => {
+    //         //         ("jasbir1");
+    //         //  })
+
+    //        }
+    // }
+
+
+    componentDidMount() {
+   
+        const {uid ,document} = this.state;
+        
+        if(uid && document && document.id /*&& document.skinCd !=*/ ){
+            
+            //console.log("component did mount")
+            this.props.actions.get(document.id)
+           // console.log(this.state.document.skinCd);
+            //console.log("yes");
+        }
+        else{
+            console.log("gettingStarted no document");
+        }
+   }
+  
+
+
 
      onClick = (skinCd ) => {
         // console.log(event);
@@ -43,7 +77,14 @@ class GettingStarted  extends Component {
 
     render() { 
 
-        console.log(this.state);
+        const {uid}= this.state
+        
+        if(!uid)
+        {
+            return (
+                <SigninErr></SigninErr>
+            )
+        }
         //console.log(this.state.auth);
 
         //console.log(this.state.document)
@@ -59,11 +100,11 @@ class GettingStarted  extends Component {
                     {
                         skinCodes.map((value) => { 
                             let i=value.charAt(4);  
-                             return( <div className = "template-card rounded-border">
+                             return( <div className = "template-card rounded-border zoom">
                                   {/* <i className="hide" ></i> */}
                                 <input type="checkbox" id={"myCheckbox"+i}  defaultChecked={(this.state.document.skinCd == "skin"+i) ? true : false}/>
                                 <label htmlFor={"myCheckbox"+i}>
-                                <img  className='' src={"./../images/" + value + ".svg"}/>
+                                <img  className="" src={"./../images/" + value + ".svg"}/>
                                 </label>
                                 <NavLink to="/contact">
                                 <button type="button"   className='btn-select-theme' id={"btn"+i} onClick={() => this.onClick(value)}>USE TEMPLATE</button>
@@ -82,19 +123,3 @@ class GettingStarted  extends Component {
 }
 
 export default GettingStarted;
- 
-// const mapStateToProps = (state) =>{ //data dera hai
-//    // alert("mapStateToProps");
-//    //console.log(state)
-//     return {document : state.document};
-//   }
-
-//   const mapDispatchToProps = (dispatch,ownProps) => {
-//      // alert("mapDispatchToProps")
-//       return {
-
-//             actions : bindActionCreators(documentAction,dispatch)
-//       }
-//   }
-  
-//   export default connect(mapStateToProps,mapDispatchToProps)(GettingStarted);

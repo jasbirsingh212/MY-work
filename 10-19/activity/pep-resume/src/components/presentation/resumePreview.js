@@ -6,7 +6,7 @@ class ResumePreview extends React.PureComponent{
         return (
 
             <div>
-            <div className="skin1 resume-preview">
+            <div className="skin1 resume-preview hide">
                 {/* <p> Resume Preview</p> */}
 
                 <div className="head">
@@ -25,7 +25,7 @@ class ResumePreview extends React.PureComponent{
                 <div className="Education-section">
                     <h2>Education</h2>
                     <hr/>
-                    <p>{this.props.educationSection.DGRE} (CGPA : {this.props.educationSection.GRCG})</p>
+                    <p className="">{this.props.educationSection.DGRE} (CGPA:{this.props.educationSection.GRCG})</p>
                     <p>{this.props.educationSection.SCHO} {this.props.educationSection.CITY} | {this.props.educationSection.GRDT} {this.props.educationSection.GRYR}</p>
                 </div>
 
@@ -34,7 +34,7 @@ class ResumePreview extends React.PureComponent{
                     <hr/>
                 </div>
             </div>
-            <div className="skin2 resume-preview hide">
+            <div className="skin2 resume-preview ">
             {/* <p> Resume Preview</p> */}
 
             <div className="head">

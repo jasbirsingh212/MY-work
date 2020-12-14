@@ -13,10 +13,10 @@ export const signIn=(userData)=>{
             return;
         }).catch((err) => {
             let message="error in authentication user"
-            if(err.code=='auth/user-not-found'){
+            if(err.code ==='auth/user-not-found'){
                 message="User not found"
             }
-            if(err.code=='auth/wrong-password'){
+            if(err.code==='auth/wrong-password'){
                 message="Incorrect password"
             }
             dispatch({type: actionTypes.SIGN_IN_FAILED,error:message})
@@ -52,13 +52,13 @@ export const register=(userData)=>{
         }).catch((err) => {
             let message='error occured while registering.Please try later'
             //console.log(err);
-            if(err.code=='auth/invalid-email'){
+            if(err.code==='auth/invalid-email'){
                 message='Please Enter valid email'
             }
-            if(err.code=='auth/weak-password'){
+            if(err.code==='auth/weak-password'){
                 message='Password should be at least 6 characters'
             }
-            if(err.code == 'auth/email-already-in-use')
+            if(err.code === 'auth/email-already-in-use')
             {
                 message='The email is already in use please change email.'
             }
@@ -71,7 +71,7 @@ export const register=(userData)=>{
         let message='Please Enter Name'
         if(!userData.email | !userData.password)
         {
-            message='No field can be empty'
+            message='Fields can not be empty'
         }
         dispatch({type: actionTypes.REGISTER_FAILED,error : message})
          

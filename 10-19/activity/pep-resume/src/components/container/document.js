@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+//import React,{Component} from 'react';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as documentAction from  '../../actions/documentAction'; 
@@ -10,8 +10,8 @@ const mapStateToProps = (state) =>{ //data dera hai
     //  alert("mapStateToProps");
     //console.log(state)
      return {
-       document : state.document,
-        auth:state.auth
+        document : state.document,
+        uid: state.firebase.auth.uid
       };
    }
  
