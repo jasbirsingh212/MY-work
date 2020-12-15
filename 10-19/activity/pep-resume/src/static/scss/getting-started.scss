@@ -1,0 +1,97 @@
+.gettingStarted {
+  
+  .styleTemplate {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .template-card {
+    flex: 1 0 18%;
+    /* explanation below */
+    margin: 15px;
+    height: 315px;
+    box-shadow: 0 2px 9px rgba(0, 0, 0, 0.1);
+    
+    &:hover {
+       background: lightgray;
+      // -webkit-transition: 0.5s;
+      // -o-transition: 0.5s;
+      /* transition: 0.5s; */
+      /* width: 100%; */
+      z-index: 84;
+      opacity: 0.8;
+      
+    }
+    
+    img
+    {
+      flex: 1 0 20%;
+      /* explanation below */
+      margin: 5px;
+      height: 300px;
+      width: 100%;
+    }
+    
+    .btn-select-theme {
+        border: none;
+        border: none;
+        padding: 5%;
+        border-radius: 5px;
+        background: linear-gradient(45deg, #1DBFAF 0, #1EAEDB 85%, #1EAEDB 100%);
+        color: white;
+        border-radius: 0.6rem;
+        position: relative;
+        top: -190px;
+        align-items: center;
+        left: 16%;
+        width: 66%;
+        //z-index: 1000;
+  
+        &:hover {
+          display: block;
+        }
+      }
+
+      label:before {
+        content: url("https://cdn1.iconfinder.com/data/icons/windows8_icons_iconpharm/26/unchecked_checkbox.png");
+        position: absolute;
+        z-index: 100;
+      }
+
+      :checked+label:before {
+        content: url("https://cdn1.iconfinder.com/data/icons/windows8_icons_iconpharm/26/checked_checkbox.png");
+      }
+      
+      input[type=checkbox] {
+        display: none;
+      }
+      /*pure cosmetics:*/
+      label {
+        margin: 10px;
+      }
+    }
+    
+  }
+
+  .not-user{
+    margin-top: 133px;
+    text-align: center;
+    color: red;
+    margin-inline: auto;
+    .btn{
+      padding-bottom: 30px
+    }
+  }
+
+  .zoom {
+    padding: 30px;
+    //background-color: green;
+    transition: transform .2s; /* Animation */
+    width: 60px;
+    height: 100px;
+    margin: 0 auto;
+  }
+  
+  .zoom:hover {
+    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
