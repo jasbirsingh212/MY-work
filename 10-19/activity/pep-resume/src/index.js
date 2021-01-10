@@ -28,13 +28,12 @@ import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
 import { createFirestoreInstance } from 'redux-firestore';
 
 var firebaseConfig = { 
-  apiKey: "AIzaSyDDC07lSTIEtn-3s_gBwnO_uk9Si2EoIEc",
-  authDomain: "pep-resume.firebaseapp.com",
-  databaseURL: "https://pep-resume.firebaseio.com",
-  projectId: "pep-resume",
-  storageBucket: "pep-resume.appspot.com",
-  messagingSenderId: "70757202739",
-  appId: "1:70757202739:web:35bf22ddf627704df2dc46"
+ apiKey: "AIzaSyB516nH6MT85qHqzhZjtIDNXfR5D-cK2Bo",
+    authDomain: "pep-resume2.firebaseapp.com",
+    projectId: "pep-resume2",
+    storageBucket: "pep-resume2.appspot.com",
+    messagingSenderId: "388798234360",
+    appId: "1:388798234360:web:bba457ab0e7c7fddb7c50d"
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
